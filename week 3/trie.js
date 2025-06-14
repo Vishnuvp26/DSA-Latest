@@ -10,7 +10,6 @@ class Trie {
         this.root = new TrieNode();
     };
 
-    // Insert a word into the Trie
     insert(word) {
         let current = this.root;
         for (let char of word) {
@@ -22,7 +21,6 @@ class Trie {
         current.isEndOfWord = true;
     };
 
-    // Search for a word in the Trie
     search(word) {
         let current = this.root;
         for (let char of word) {
@@ -34,7 +32,6 @@ class Trie {
         return current.isEndOfWord;
     };
 
-    // Check if any word starts with the given prefix
     prefix(word) {
         let current = this.root;
         for(let char of word) {
@@ -45,14 +42,29 @@ class Trie {
         }
         return true;
     }
+
+    longestCommonPrefix() {
+        let prefix = "";
+        let current = this.root;
+
+        while (current && !current.isEndOfWord && Object.keys(current.children).length === 1) {
+            let char = Object.keys(current.children)[0];
+            prefix += char;
+            current = current.children[char];
+        }
+
+        return prefix;
+    };
 }
 
-// Example usage:
 const trie = new Trie();
-trie.insert("apple");
-trie.insert("app");
-console.log(trie.search("apple"));    // true
-console.log(trie.search("app"));      // true
-console.log(trie.search("appl"));     // false
-console.log(trie.prefix("app"));  // true
-console.log(trie.prefix("apx"));  // false
+trie.insert("flower");
+trie.insert("flow");
+trie.insert("flight");
+console.log(trie.search("flower"));
+console.log(trie.search("fl"));
+console.log(trie.search("flo"));
+console.log(trie.prefix("flo"));
+console.log(trie.prefix("fli"));
+
+console.log('Longest common prefix :',trie.longestCommonPrefix());

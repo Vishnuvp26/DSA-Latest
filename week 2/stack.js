@@ -40,7 +40,7 @@ class Stack {
         for(let i = 0; i < target; i++) {
             tempStack.push(this.pop());
         }
-        this.pop(); // Remove element at the target index
+        this.pop();
         
         while(!tempStack.isEmpty()) {
             this.push(tempStack.pop());
@@ -98,6 +98,16 @@ class Stack {
         }
     };
 
+    find(value) {
+        for (let i = 0; i < this.items.length; i++) {
+            if (this.items[i] === value) {
+                console.log(`Value ${value} found`);
+                return
+            }
+        }
+        console.log(`Value ${value} not found`);
+    }
+
     removeDuplicates() {
         let tempStack = new Stack()
         let set = new Set()
@@ -116,7 +126,7 @@ class Stack {
 };
 
 const stack = new Stack();
-
+l
 console.log('Push...')
 stack.push(80);
 stack.push(40);

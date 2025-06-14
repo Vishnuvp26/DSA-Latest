@@ -7,6 +7,15 @@ function factorial(num) {
 console.log(factorial(5))
 
 
+// Fibonacci
+function fibonacci(n) {
+    if (n < 2) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2)
+};
+
+console.log(fibonacci(10));
+
+
 // string reverse
 function reverseString(str) {
     if(str === '') return ''
@@ -96,7 +105,18 @@ function counter(arr, count = 0, i = 0) {
 }
 
 let arr = [1, 3, 0, 4, 0, 4, 0, 0, 3, 0, 1, 0]
-console.log(counter(arr))
+console.log(counter(arr));
+
+
+// Digit sum using recursion
+let num = 1234857;
+
+function digitSum(num) {
+    if (num === 0) return 0;
+    return (num  % 10) + digitSum(Math.floor(num / 10))
+};
+
+console.log(digitSum(num));
 
 
 // Remove 'l' using recursion

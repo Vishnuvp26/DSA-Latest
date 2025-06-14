@@ -177,6 +177,57 @@ class BinarySearchTree {
         if (!root.left && !root.right) return 1;
         return this.leafNodeCount(root.left) + this.leafNodeCount(root.right);
     };
+
+    secondLargest() {
+        if (!this.root) return null;
+        
+        let current = this.root;
+        let parent = null;
+        
+        while (current.right) {
+            parent = current;
+            current = current.right;
+        }
+        
+        if (current.left) {
+            return this.max(current.left);
+        }
+        
+        return parent ? parent.value : null;
+    };
+
+    secondSmallest() {
+        if (!this.root) return null;
+        
+        let current = this.root;
+        let parent = null;
+        
+        while (current.left) {
+            parent = current;
+            current = current.left;
+        }
+        
+        if (current.right) {
+            return this.min(current.right);
+        }
+        
+        return parent ? parent.value : null;
+    };
+
+    isBalanced(node = this.root) {
+        const check = (node) => {
+            if (!node) return 0;
+
+            const left = check(node.left);
+            const right = check(node.right);
+
+            if (left === -1 || right === -1 || Math.abs(left - right) > 1) return -1;
+
+            return 1 + Math.max(left, right);
+        };
+
+        return check(node) !== -1;
+    }
 };
 
 const bst = new BinarySearchTree()
@@ -225,3 +276,8 @@ console.log('Degree of node');
 bst.findDegree(bst.root)
 
 console.log('Leaf node count:', bst.leafNodeCount(bst.root));
+
+console.log("Second Largest :", bst.secondLargest());
+console.log("Second Smallest :", bst.secondSmallest());
+
+console.log('is balanced:', bst.isBalanced());

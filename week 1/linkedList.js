@@ -188,6 +188,66 @@ class LinkedList {
         return sum
     };
 
+    smallest() {
+        let curr = this.head;
+        let min = curr.value
+
+        while (curr) {
+            if (curr.value < min) {
+                min = curr.value
+            }
+            curr = curr.next
+        }
+        return min;
+    };
+
+    largest() {
+        let curr = this.head;
+        let max = curr.value
+
+        while (curr) {
+            if (curr.value > max) {
+                max = curr.value
+            }
+            curr = curr.next
+        }
+        return max;
+    };
+
+    secondSmallest() {
+        let small = Infinity
+        let secSmall = Infinity
+        let curr = this.head
+
+        while (curr) {
+            if (curr.value < small) {
+                secSmall = small;
+                small = curr.value
+            } else if (curr.value < secSmall && small !== secSmall) {
+                secSmall = curr.value
+            }
+            curr = curr.next
+        }
+        return secSmall;
+    };
+
+    secondLargest() {
+        let max = -Infinity
+        let secMax = -Infinity
+        let curr = this.head
+
+        while (curr) {
+            if (curr.value > max) {
+                secMax = max
+                max = curr.value
+            } else if (curr.value > secMax && secMax !== max) {
+                secMax = curr.value
+            }
+            curr = curr.next
+        }
+        return secMax
+    };
+
     recursiveSum(curr = this.head, sum = 0) {
         if (!curr) return sum
         sum += curr.value
@@ -200,8 +260,7 @@ class LinkedList {
 let list = new LinkedList();
 
 // Append elements
-console.log("\nAppending elements [10, 20, 30, 40, 50]:");
-list.fromArray([10, 20, 30, 40, 50]);
+list.fromArray([10, 88, 20, 30, 6, 40, 50]);
 list.print();
 
 // Prepend elements
@@ -241,4 +300,10 @@ list.print();
 // Sum
 console.log('sum :', list.sum());
 
-console.log('recursive sum :',list.recursiveSum());
+console.log('recursive sum :', list.recursiveSum());
+
+console.log('smallest:', list.smallest());
+console.log("Largest:", list.largest());
+
+console.log('second smallest:', list.secondSmallest());
+console.log('second largest:', list.secondLargest());

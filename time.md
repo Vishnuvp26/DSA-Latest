@@ -18,26 +18,8 @@
 - Average: O(1)  
 - Worst: O(n)  
 
-# Tree:  
-- Access/Search/Insertion/Deletion: O(log n)   
-
-# Heap:  
-- Insertion/Deletion: O(log n)  
-- Access Max/Min: O(1)  
-
 # Binary Search: 
 - O(log n)  
-
-# Binary Search Tree (BST):  
-- Average: O(log n)  
-- Worst: O(n)  
-
-# Graph:  
-- Adjacency Matrix: O(V²)  
-- Adjacency List: O(V + E)  
-
-# Trie:  
-- Search/Insert/Delete: O(m) (m = length of the key) 
 
 # Merge Sort: 
 - O(n log n)  
@@ -55,3 +37,23 @@
 
 # Bubble Sort: 
 - O(n²)
+
+-------------------------------------------------------
+
+# Tree:  
+- Access/Search/Insertion/Deletion: O(log n)   
+
+# Heap:  
+- Insertion/Deletion: O(log n)  
+- Access Max/Min: O(1)  
+
+# Binary Search Tree (BST):  
+- Average: O(log n)  
+- Worst: O(n)
+
+# Graph:  
+- Adjacency Matrix: O(V²)  
+- Adjacency List: O(V + E)  
+
+# Trie:  
+- Search/Insert/Delete: O(m) (m = length of the key)
