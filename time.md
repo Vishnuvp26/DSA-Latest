@@ -44,7 +44,7 @@
 - Access/Search/Insertion/Deletion: O(log n)   
 
 # Heap:  
-- Insertion/Deletion: O(log n)  
+- Insertion/Deletion: O(n log n)  
 - Access Max/Min: O(1)  
 
 # Binary Search Tree (BST):  

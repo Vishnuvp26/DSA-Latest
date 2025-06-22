@@ -52,7 +52,6 @@ class Trie {
             prefix += char;
             current = current.children[char];
         }
-
         return prefix;
     };
 }

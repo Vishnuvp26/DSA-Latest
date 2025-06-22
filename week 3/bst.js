@@ -192,7 +192,6 @@ class BinarySearchTree {
         if (current.left) {
             return this.max(current.left);
         }
-        
         return parent ? parent.value : null;
     };
 
@@ -210,7 +209,6 @@ class BinarySearchTree {
         if (current.right) {
             return this.min(current.right);
         }
-        
         return parent ? parent.value : null;
     };
 
@@ -225,7 +223,6 @@ class BinarySearchTree {
 
             return 1 + Math.max(left, right);
         };
-
         return check(node) !== -1;
     }
 };
