@@ -99,7 +99,7 @@ class LinkedList {
             curr = curr.next;
             index++;
         }
-        return false;
+        console.log(`Value ${value} not found`);
     };
 
     print() {
@@ -109,7 +109,7 @@ class LinkedList {
             let curr = this.head;
             let listValues = '';
             while (curr) {
-                listValues += curr.value + ' ';
+                listValues += curr.value + ' -> ';
                 curr = curr.next;
             }
             console.log(listValues);
@@ -254,6 +254,17 @@ class LinkedList {
         curr = curr.next
         return this.recursiveSum(curr, sum)
     };
+
+    evenNumbers() {
+        let evens = []
+        let curr = this.head
+
+        while (curr) {
+            if (curr.value % 2 === 0) evens.push(curr.value)
+            curr = curr.next
+        }
+        return evens
+    };
 };
 
 // Usage example:
@@ -307,3 +318,5 @@ console.log("Largest:", list.largest());
 
 console.log('second smallest:', list.secondSmallest());
 console.log('second largest:', list.secondLargest());
+
+// console.log('Even numbers :', list.evenNumbers());

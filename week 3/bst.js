@@ -128,9 +128,9 @@ class BinarySearchTree {
         while (current) {
             if (current.value <= target) {
                 closest = current.value
-                current = current.next
+                current = current.right
             } else {
-                current = current.next
+                current = current.left
             }
         }
         return closest ?? 'No values less than or equal to target found'

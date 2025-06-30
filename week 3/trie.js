@@ -54,6 +54,28 @@ class Trie {
         }
         return prefix;
     };
+
+    autocomplete(prefix) {
+        let node = this.root;
+
+        for (let ch of prefix) {
+            if (!node.children[ch]) return [];
+            node = node.children[ch];
+        }
+
+        let result = [];
+
+        const collect = (n, word) => {
+            if (n.isEndOfWord) result.push(word);
+            for (let ch in n.children) {
+                collect(n.children[ch], word + ch);
+            }
+        };
+
+        collect(node, prefix);
+        return result;
+    }
+
 }
 
 const trie = new Trie();
@@ -66,4 +88,6 @@ console.log(trie.search("flo"));
 console.log(trie.prefix("flo"));
 console.log(trie.prefix("fli"));
 
-console.log('Longest common prefix :',trie.longestCommonPrefix());
+console.log('Longest common prefix :', trie.longestCommonPrefix());
+
+console.log(trie.autocomplete("fl"));
